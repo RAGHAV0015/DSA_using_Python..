@@ -58,7 +58,29 @@ class Sll:
             pre =pre.next
         pre.next =a.next
         a.next =None
+    
+    def search(self,item):
+        a =self.head
+        while a is not None:
+            if item==a.data:
+                print(a.data)
+            a =a.next
+        return None
+    
 
+
+class iterator:
+    def __init__(self,start):
+        self.current =start
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if not self.current:
+            raise StopIteration
+        data=self.current.item
+        self.current= self.current.next
 
         
         
@@ -88,4 +110,5 @@ sll.traverse()
 sll.del_at_beginning()
 sll.traverse()
 sll.del_at_specific(4)
-sll.traverse() 
+sll.search(10)
+
